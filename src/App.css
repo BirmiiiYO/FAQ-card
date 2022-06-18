@@ -22,13 +22,13 @@ body {
   background: linear-gradient(to bottom,hsl(273, 75%, 66%),hsl(240, 73%, 65%)) no-repeat center center fixed;
   font-family: 'Kumbh Sans', sans-serif;
   font-size: 14px;
-  
 }
 
 .content{
   margin:7% auto;
   background-color: white;
   max-width: 920px;
+  height: 700px;
   border-radius: 22px;
   max-height: 510px;
   
@@ -37,36 +37,64 @@ body {
   display: flex;
   justify-content: flex-start;
   padding-top: 70px;
+ 
+}
+.title{
+  display: flex;
+  justify-content: space-between;
+  max-width: 330px;
+  margin-bottom: 37px;
+  margin-top: -7px;
+  align-items: center;
 }
 
 h1{
   font-weight: 700;
   font-size: 32px;
-  margin-bottom: 20px;
-  margin-top: -7px;
 }
 ul{
-  margin-right: 95px;
+  margin-right: 115px;
 }
 li{
   list-style-type: none;
-  padding-bottom: 17px;
-  padding-top: 17px;
-  display: flex;
-  justify-content: space-between;
-  width: 350px;
+  width: 330px;
   align-items: center;
   border-bottom: solid;
   border-width: 1px;
   border-color: hsl(240, 5%, 91%);
 }
 .images{
-  display: inline-block;
   margin-left: -85px;
-
+  margin-right:86px;
+  
 }
 .bg-img{
-  width: 100%;
-  margin-top: -447px;
-  margin-left: -87px;
+  margin-top: -725px;
+  margin-left: -492px;
+  
+}
+.img-block{
+  margin: 0;
+  margin-top: -446px;
+  margin-left: -7px;
+}
+
+.question{
+display: flex;
+justify-content: space-between;
+padding-bottom: 10px;
+}
+
+.answer{
+
+}
+button{
+  border: none;
+  outline: none;
+  background-color: white;
+}
+
+.theme {
+  width: 32px;
+  opacity: 70%;
 }
