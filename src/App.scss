@@ -18,20 +18,36 @@ textarea,
 select {
   font-style: inherit;
 }
+html[data-theme='dark'] {
+  --text-color: #ffffff;
+  --background-color: #292929;
+  --button-bg-color:#292929;
+  --li-border-color:rgb(100, 94, 94);
+  --bg-grad: linear-gradient(to bottom,hsl(273, 66%, 25%),hsl(240, 43%, 15%));
+}
+
+html[data-theme='light'] {
+  --text-color: #000000;
+  --background-color: #ffffff;
+  --button-bg-color:rgb(255, 255, 255);
+  --li-border-color:hsl(240, 5%, 91%);
+  --bg-grad: linear-gradient(to bottom,hsl(273, 75%, 66%),hsl(240, 73%, 65%));
+}
 body {
-  background: linear-gradient(to bottom,hsl(273, 75%, 66%),hsl(240, 73%, 65%)) no-repeat center center fixed;
+  background: var(--bg-grad) no-repeat center center fixed;
   font-family: 'Kumbh Sans', sans-serif;
   font-size: 14px;
 }
 
 .content{
   margin:7% auto;
-  background-color: white;
+  background-color: var(--background-color);
+  color:var(--text-color);
   max-width: 920px;
   height: 700px;
   border-radius: 22px;
   max-height: 510px;
-  
+  overflow: hidden;
 }
 .wrapper{
   display: flex;
@@ -43,7 +59,7 @@ body {
   display: flex;
   justify-content: space-between;
   max-width: 330px;
-  margin-bottom: 37px;
+  margin-bottom: 26px;
   margin-top: -7px;
   align-items: center;
 }
@@ -52,16 +68,30 @@ h1{
   font-weight: 700;
   font-size: 32px;
 }
-ul{
-  margin-right: 115px;
-}
+
 li{
   list-style-type: none;
   width: 330px;
   align-items: center;
   border-bottom: solid;
   border-width: 1px;
-  border-color: hsl(240, 5%, 91%);
+  border-color: var(--li-border-color);
+}
+p{
+  margin-top: 11px;
+  padding-bottom: 11px;
+  font-weight: 400;
+  &.active {
+    font-weight: 700;
+    font-style: italic;
+  }
+}
+.answer{
+  font-size: 12px;
+  line-height: 18px;
+  padding-bottom: 19px;
+  color: var(--text-color);
+  opacity: 80%;
 }
 .images{
   margin-left: -85px;
@@ -77,6 +107,7 @@ li{
   margin: 0;
   margin-top: -446px;
   margin-left: -7px;
+  position: absolute;
 }
 
 .question{
@@ -85,13 +116,16 @@ justify-content: space-between;
 padding-bottom: 10px;
 }
 
-.answer{
 
-}
 button{
   border: none;
   outline: none;
-  background-color: white;
+  background-color: var(--button-bg-color);
+  img{
+  &.active{
+    transform: rotate(180deg);
+  }
+  }
 }
 
 .theme {
