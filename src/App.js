@@ -1,27 +1,17 @@
+import React, { useRef, useState } from 'react';
+import { useTheme } from './useTheme.js';
+
 import './App.scss';
+
 import illustration from './images/illustration-woman-online-desktop.svg';
 import iconArrow from './images/icon-arrow-down.svg';
 import bgImg from './images/bg-pattern-desktop.svg';
 import themeSwitch from './images/theme.svg';
 import block from './images/illustration-box-desktop.svg';
-import React from 'react';
-import { useTheme } from './useTheme.js';
+import womanMobile from './images/illustration-woman-online-mobile.svg';
+import bgMobile from './images/bg-pattern-mobile.svg';
 
 function App() {
-  const { theme, setTheme } = useTheme();
-
-  const handleThemeClick = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
-  };
-
-  const [visibleAns, setVisibleAns] = React.useState(false);
-
-  const [activeQuestion, setActiveQuestion] = React.useState(null);
-
   const questions = [
     'How many team members can I invite?',
     'What is the maximum file upload size?',
@@ -37,30 +27,71 @@ function App() {
     'Chat and email support is available 24/7. Phone lines are open during normal business hours.',
   ];
 
+  const { theme, setTheme } = useTheme();
+
+  const [visibleAns, setVisibleAns] = useState(false);
+
+  const [activeQuestion, setActiveQuestion] = React.useState(null);
+
+  const activeRef = useRef(null);
+
+  const handleThemeClick = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  };
+  const handleOutsideClick = (e) => {
+    if (!e.path.includes(activeRef.current)) {
+      setActiveQuestion(null);
+      setVisibleAns(false);
+    }
+  };
+
+  document.body.addEventListener('click', handleOutsideClick);
+
   return (
     <div className="App">
       <div className="content">
         <div className="wrapper">
           <div className="images">
-            <img className="main-img" src={illustration} />
-            <img className="bg-img" src={bgImg} />
-            <img className="img-block" src={block} />
+            <img className="main-img" alt="woman" src={illustration} />
+            <img className="bg-img" alt="bg" src={bgImg} />
+            <img className="img-block" alt="box" src={block} />
+            <div className="mobile-img">
+              <img className="mobile-img_woman" src={womanMobile} />
+              <img className="mobile-img_bg" src={bgMobile} />
+            </div>
           </div>
           <div>
             <div className="title">
               <h1>FAQ</h1>
-              <img className="theme" src={themeSwitch} onClick={() => handleThemeClick()} />
+              <img
+                className="theme"
+                src={themeSwitch}
+                alt="switcher"
+                onClick={() => handleThemeClick()}
+              />
             </div>
-            <ul>
+            <ul ref={activeRef}>
               {questions.map((question, index) => (
                 <li onClick={() => setActiveQuestion(index)} key={`${question}_${index}`}>
                   <div className="question" onClick={() => setVisibleAns(!visibleAns)}>
                     <p className={activeQuestion === index ? 'active' : ''}>{question}</p>
-                    <button>
-                      <img src={iconArrow} />
+                    <button className="arrow">
+                      <img
+                        className={activeQuestion === index ? 'active' : ''}
+                        src={iconArrow}
+                        alt="arrow"
+                      />
                     </button>
                   </div>
-                  {visibleAns && <div className="answer">{answers[index]}</div>}
+                  {visibleAns && activeQuestion === index ? (
+                    <div className="answer">{answers[activeQuestion]}</div>
+                  ) : (
+                    ''
+                  )}
                 </li>
               ))}
             </ul>
@@ -72,51 +103,3 @@ function App() {
 }
 
 export default App;
-
-// <ul>
-//               <li>
-//                 <div className="question" onClick={() => setActiveQuestion(0)}>
-//                   <p>{questions[0]}</p>
-//                   <button onClick={() => setVisibleAns(!visibleAns)}>
-//                     <img src={iconArrow} />
-//                   </button>
-//                 </div>
-//                 {visibleAns && <div className="answer">{answers[0]}</div>}
-//               </li>
-//               <li>
-//                 <div className="question">
-//                   <p>{questions[1]}</p>
-//                   <button onClick={() => setVisibleAns(!visibleAns)}>
-//                     <img src={iconArrow} />
-//                   </button>
-//                 </div>
-//                 {visibleAns && <div className="answer">{answers[1]}</div>}
-//               </li>
-//               <li>
-//                 <div className="question">
-//                   <p>{questions[2]}</p>
-//                   <button onClick={() => setVisibleAns(!visibleAns)}>
-//                     <img src={iconArrow} />
-//                   </button>
-//                 </div>
-//                 {visibleAns && <div className="answer">{answers[2]}</div>}
-//               </li>
-//               <li>
-//                 <div className="question">
-//                   <p>{questions[3]}</p>
-//                   <button onClick={() => setVisibleAns(!visibleAns)}>
-//                     <img src={iconArrow} />
-//                   </button>
-//                 </div>
-//                 {visibleAns && <div className="answer">{answers[3]}</div>}
-//               </li>
-//               <li>
-//                 <div className="question">
-//                   <p>{questions[4]}</p>
-//                   <button onClick={() => setVisibleAns(!visibleAns)}>
-//                     <img src={iconArrow} />
-//                   </button>
-//                 </div>
-//                 {visibleAns && <div className="answer">{answers[4]}</div>}
-//               </li>
-//             </ul>

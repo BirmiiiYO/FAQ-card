@@ -48,11 +48,22 @@ body {
   border-radius: 22px;
   max-height: 510px;
   overflow: hidden;
+  @media (max-width:999px){
+    overflow: visible;
+    height: 10000px;
+    max-width: 375px;
+  }
+ 
 }
 .wrapper{
   display: flex;
   justify-content: flex-start;
   padding-top: 70px;
+  @media (max-width:999px){
+    display:inline;
+    justify-content: flex-end;
+    align-items: center;
+  }
  
 }
 .title{
@@ -78,12 +89,17 @@ li{
   border-color: var(--li-border-color);
 }
 p{
-  margin-top: 11px;
-  padding-bottom: 11px;
+  &:first-child{
+    margin-top: 11px;
+  }
+  padding-bottom: 6px;
   font-weight: 400;
   &.active {
     font-weight: 700;
     font-style: italic;
+  }
+  &:hover{
+    color: hsl(14, 88%, 65%);
   }
 }
 .answer{
@@ -96,11 +112,23 @@ p{
 .images{
   margin-left: -85px;
   margin-right:86px;
-  
+  @media (max-width:999px){
+    margin: 0;
+  }
+}
+.main-img{
+  @media (max-width:999px){
+    display:none;
+  }
 }
 .bg-img{
   margin-top: -725px;
   margin-left: -492px;
+  @media (max-width:999px){
+    display:none;
+    margin: 0;
+  }
+ 
   
 }
 .img-block{
@@ -108,6 +136,9 @@ p{
   margin-top: -446px;
   margin-left: -7px;
   position: absolute;
+  @media (max-width:999px){
+    margin: 0px;
+  }
 }
 
 .question{
@@ -131,4 +162,16 @@ button{
 .theme {
   width: 32px;
   opacity: 70%;
+}
+.arrow{
+  &.active{
+    transform: rotate(180deg);
+  }
+}
+.mobile-img{
+  overflow: hidden;
+  @media(max-width:999px){
+    overflow: visible;
+    width: 80%;
+  }
 }
