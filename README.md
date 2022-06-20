@@ -1,3 +1,26 @@
+https://faq-according-card.herokuapp.com/
+![Снимок экрана 2022-06-20 125829](https://user-images.githubusercontent.com/91631586/174582945-e14d4a3c-84d3-42e7-aaee-cb6d60d8050d.png)
+![Снимок экрана 2022-06-20 125919](https://user-images.githubusercontent.com/91631586/174582952-77c9b286-4e70-4fe1-a820-ae8d3c0a9516.png)
+![Снимок экрана 2022-06-20 130537](https://user-images.githubusercontent.com/91631586/174582956-31317eb7-4969-4e40-bcd3-a0dd6ecadb40.png)
+
+Welcome! 
+
+Thanks for checking out this front-end coding challenge.
+
+Frontend Mentor challenges allow you to improve your skills in a real-life workflow.
+
+To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.
+
+The challenge
+Your challenge is to build out this FAQ accordion card and get it looking as close to the design as possible.
+
+You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+
+Your users should be able to:
+
+View the optimal layout for the component depending on their device's screen size
+See hover states for all interactive elements on the page
+Hide/Show the answer to a question when the question is clicked
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
