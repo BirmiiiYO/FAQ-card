@@ -89,9 +89,7 @@ function App() {
                   </div>
                   {visibleAns && activeQuestion === index ? (
                     <div className="answer">{answers[activeQuestion]}</div>
-                  ) : (
-                    ''
-                  )}
+                  ) : null}
                 </li>
               ))}
             </ul>
