@@ -60,8 +60,8 @@ function App() {
             <img className="bg-img" alt="bg" src={bgImg} />
             <img className="img-block" alt="box" src={block} />
             <div className="mobile-img">
-              <img className="mobile-img_woman" src={womanMobile} />
-              <img className="mobile-img_bg" src={bgMobile} />
+              <img className="mobile-img_woman" src={womanMobile} alt="mobile-woman" />
+              <img className="mobile-img_bg" src={bgMobile} alt="mobile-bg" />
             </div>
           </div>
           <div>
@@ -76,8 +76,12 @@ function App() {
             </div>
             <ul ref={activeRef}>
               {questions.map((question, index) => (
-                <li onClick={() => setActiveQuestion(index)} key={`${question}_${index}`}>
-                  <div className="question" onClick={() => setVisibleAns(!visibleAns)}>
+                <li
+                  onClick={() => {
+                    activeQuestion === index ? setActiveQuestion(null) : setActiveQuestion(index);
+                  }}
+                  key={`${question}_${index}`}>
+                  <div className="question">
                     <p className={activeQuestion === index ? 'active' : ''}>{question}</p>
                     <button className="arrow">
                       <img
@@ -87,7 +91,7 @@ function App() {
                       />
                     </button>
                   </div>
-                  {visibleAns && activeQuestion === index ? (
+                  {activeQuestion === index ? (
                     <div className="answer">{answers[activeQuestion]}</div>
                   ) : null}
                 </li>
