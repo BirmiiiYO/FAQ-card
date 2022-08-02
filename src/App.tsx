@@ -1,24 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { Button} from 'antd';
+import { LoginOutlined , LogoutOutlined} from '@ant-design/icons';
+import './App.scss';
 
 function App() {
+
+  const [swap, setSwap] = useState(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='container'>
+      <header><div>zxc</div>
+      <ul>
+        <li>zxc</li>
+      <li>zxc</li>
+      <li>zxc</li>
+      <li>zxc</li>
+      <li>zxc</li>
+      </ul>
+      <Button type="primary" onClick={()=> setSwap(!swap)}>zxc {swap === true ? <LoginOutlined/> : <LogoutOutlined/>}</Button>
+      
       </header>
+      <div className='wrapper'>
+        <aside>zxc</aside>
+        <main>
+        <Button type="dashed" danger={true}  size="small">zxc danger</Button>
+        <Button type="dashed" disabled={true} >zxc disabled</Button>
+        <Button type="dashed" ghost={true} >zxc ghost</Button>
+        <Button type="dashed" href="https://vk.com/birmiiiyo" target="_blank">zxc ghost</Button>
+        <Button type="dashed" loading={true} >zxc ghost</Button>
+        
+        <Button type="dashed" shape='round' size="large">zxc ghost</Button>
+        </main>
+      </div>
     </div>
   );
 }
