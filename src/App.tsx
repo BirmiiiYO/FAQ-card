@@ -2,6 +2,19 @@ import React from 'react';
 import { useState } from 'react';
 import { Button} from 'antd';
 import { LoginOutlined , LogoutOutlined} from '@ant-design/icons';
+
+import {
+  BrowserRouter as Router,
+    Route,
+    Switch
+} from "react-router-dom"
+
+import Aside from './components/Aside';
+import Home from './components/Home';
+import Test from './components/Test';
+import About from './components/About';
+
+import Logo from "./images/corgi.jpg"
 import './App.scss';
 
 function App() {
@@ -9,8 +22,10 @@ function App() {
   const [swap, setSwap] = useState(false)
 
   return (
+    <Router>
     <div className='container'>
-      <header><div>zxc</div>
+      <header>
+        <img src={Logo} alt="logo" style={{width:"100px"}}/>
       <ul>
         <li>zxc</li>
       <li>zxc</li>
@@ -18,22 +33,28 @@ function App() {
       <li>zxc</li>
       <li>zxc</li>
       </ul>
-      <Button type="primary" onClick={()=> setSwap(!swap)}>zxc {swap === true ? <LoginOutlined/> : <LogoutOutlined/>}</Button>
+      <Button type="primary" onClick={()=> setSwap(!swap)} icon={swap === true ? <LoginOutlined/> : <LogoutOutlined/>}>zxc</Button>
       
       </header>
       <div className='wrapper'>
-        <aside>zxc</aside>
+        <Aside/>
         <main>
-        <Button type="dashed" danger={true}  size="small">zxc danger</Button>
-        <Button type="dashed" disabled={true} >zxc disabled</Button>
-        <Button type="dashed" ghost={true} >zxc ghost</Button>
-        <Button type="dashed" href="https://vk.com/birmiiiyo" target="_blank">zxc ghost</Button>
-        <Button type="dashed" loading={true} >zxc ghost</Button>
         
-        <Button type="dashed" shape='round' size="large">zxc ghost</Button>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/test">
+            <Test />
+          </Route>
+        </Switch>
         </main>
       </div>
     </div>
+    </Router>
   );
 }
 
