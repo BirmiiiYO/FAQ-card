@@ -16,6 +16,7 @@ import About from './components/About';
 
 import Logo from "./images/corgi.jpg"
 import './App.scss';
+import SinglePerson from './components/SinglePerson';
 
 function App() {
 
@@ -49,6 +50,9 @@ function App() {
           </Route>
           <Route path="/test">
             <Test />
+          </Route>
+          <Route path="/person">
+            <SinglePerson />
           </Route>
         </Switch>
         </main>

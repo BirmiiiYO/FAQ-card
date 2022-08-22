@@ -1,9 +1,11 @@
+import { UserAPI } from '../services/UserService';
 import { bsuirApi } from './bsuir/bsuir.api';
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { configureStore} from "@reduxjs/toolkit";
 
 export const store = configureStore({
     reducer:{
-        [bsuirApi.reducerPath]: bsuirApi.reducer
+        [bsuirApi.reducerPath]: bsuirApi.reducer,
+        [UserAPI.reducerPath]: UserAPI.reducer
     },
-    middleware:getDefaultMiddleware => getDefaultMiddleware().concat(bsuirApi.middleware)
+    middleware:getDefaultMiddleware => getDefaultMiddleware().concat(UserAPI.middleware)
 })

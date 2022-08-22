@@ -3,9 +3,7 @@ import { useSearchPrepodQuery } from '../store/bsuir/bsuir.api'
 
 export default function Home() {
   const {isLoading, isError, data}= useSearchPrepodQuery("")
-  for (let i=0;i<10;i++){
-    console.log(data?.[i].middleName)
-  }
+  
   return (
     <div>
       {isError && <p>Something wrong</p>}
