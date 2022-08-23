@@ -17,6 +17,13 @@ export default function Aside() {
           <li>
             <Link to="/test">Test</Link>
           </li>
+          <li>
+            <Link to="/animation">Anime</Link>
+          </li>
+          <li>
+            <Link to="/smth">SMTH</Link>
+          </li>
+
         </ul>
 
         <hr/>
