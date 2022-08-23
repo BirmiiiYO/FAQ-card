@@ -17,7 +17,8 @@ import About from './components/About';
 import Logo from "./images/corgi.jpg"
 import './App.scss';
 import SinglePerson from './components/SinglePerson';
-
+import Smth from './components/Smth';
+import Animation from './components/Anumation';
 function App() {
 
   const [swap, setSwap] = useState(false)
@@ -53,6 +54,12 @@ function App() {
           </Route>
           <Route path="/person">
             <SinglePerson />
+          </Route>
+          <Route path="/animation">
+            <Animation />
+          </Route>
+          <Route path="/smth">
+            <Smth />
           </Route>
         </Switch>
         </main>
