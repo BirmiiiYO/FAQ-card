@@ -80,7 +80,8 @@ function App() {
                   onClick={() => {
                     activeQuestion === index ? setActiveQuestion(null) : setActiveQuestion(index);
                   }}
-                  key={`${question}_${index}`}>
+                  key={`${question}_${index}`}
+                >
                   <div className="question">
                     <p className={activeQuestion === index ? 'active' : ''}>{question}</p>
                     <button className="arrow">
@@ -100,6 +101,7 @@ function App() {
           </div>
         </div>
       </div>
+      Created by BirmiiiYo
     </div>
   );
 }
